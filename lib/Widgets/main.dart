@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import '../Widgets/categoriesScreen.dart';
+import 'categoriesScreen.dart';
+import 'categoryMealScreen.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: CategoriesPageWidget(),
+    initialRoute: '/',
+    routes: {
+       '/' : (ctx) => CategoriesPageWidget(),
+      '/categories-meal' : (ctx) => CategriesMealScreen(),
+    },
     theme: ThemeData(
       primarySwatch: Colors.pink,
       accentColor: Colors.amber,
@@ -21,8 +26,22 @@ void main() {
           fontSize: 22.0,
           fontFamily: 'Parisienne',
 
-        )
+        ),
+      ),
+      appBarTheme: AppBarTheme(
+        color: Colors.red.withOpacity(0.6),
+        elevation: 4.0,
+        shadowColor: Colors.pinkAccent.withOpacity(0.6),
+        titleTextStyle: TextStyle(
+          fontFamily: 'Parisienne',
+          fontSize: 22.0,
+          fontWeight: FontWeight.bold,
+        ),
+brightness: Brightness.light,
+        // titleSpacing: 1.6,
+
       )
+
     ),
   ));
 }

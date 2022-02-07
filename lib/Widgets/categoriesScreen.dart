@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:groceryapp/Modules/dummy_data.dart';
+import 'package:groceryapp/Modules/listObjectsInstantiateClass.dart';
 import 'package:groceryapp/Widgets/category_items.dart';
 
 class CategoriesPageWidget extends StatelessWidget {
@@ -7,13 +7,16 @@ class CategoriesPageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('dailyMeal'),
+        title:  Text('dailyMeal', style:Theme.of(context).appBarTheme.titleTextStyle,),
+        centerTitle: true,
+
       ),
       body: GridView(
         padding: const EdgeInsets.all(25),
           scrollDirection: Axis.vertical,
 
-          children: DummyListData.map(
+          children:
+          DummyListData.map(
               (e) => CategoryItems(title: e.title, color: e.color,id: e.id,)).toList(),
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,

@@ -11,9 +11,13 @@ class CategoryItems extends StatelessWidget {
 });
 
   void onTapCategories(BuildContext context){
-    Navigator.of(context).push(MaterialPageRoute(builder: (_){
-      return CategriesMealScreen(CategoriesId: id,CategoriesTitle: title,);
-    }));
+    Navigator.of(context).pushNamed(
+        CategriesMealScreen.routeName,arguments: {
+          'id' : id ,
+      'title' :title,
+      // 'color' : color
+    }
+    );
   }
 
   @override
