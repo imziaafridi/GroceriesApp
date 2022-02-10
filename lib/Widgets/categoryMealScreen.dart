@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:groceryapp/Modules/category_data.dart';
 import 'package:groceryapp/Modules/listObjectsInstantiateClass.dart';
 import 'mealitems.dart';
 
 class CategriesMealScreen extends StatelessWidget {
   static const routeName = '/categories-meal';
-
   // final String CategoriesId;
   // final String CategoriesTitle;
   // CategriesMealScreen({required this.CategoriesId,required this.CategoriesTitle});
   @override
   Widget build(BuildContext context) {
     final routeArgsAccess =
-        ModalRoute.of(context)!.settings.arguments as Map<String, Object>;
+        ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     final CategoriesTitle = routeArgsAccess['title'];
     final CategoriesId = routeArgsAccess['id'];
     // final CategoriesColor = routeArgsAccess['color'];
@@ -31,6 +29,7 @@ class CategriesMealScreen extends StatelessWidget {
               accessibilityLevels: categoriesData[index].accessiblityLevels,
               compelexityLevels: categoriesData[index].compelexityLevels,
               duration: categoriesData[index].duration,
+              id: categoriesData[index].id,
             );
           },
           itemCount: categoriesData.length,

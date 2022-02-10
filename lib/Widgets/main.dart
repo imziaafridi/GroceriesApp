@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:groceryapp/Widgets/MealitemsCategoryScreen.dart';
 import 'categoriesScreen.dart';
 import 'categoryMealScreen.dart';
 
@@ -8,7 +9,8 @@ void main() {
     initialRoute: '/',
     routes: {
        '/' : (ctx) => CategoriesPageWidget(),
-      '/categories-meal' : (ctx) => CategriesMealScreen(),
+      CategriesMealScreen.routeName : (ctx) => CategriesMealScreen(),
+      MealitemsCategoryScreen.routeName : (ctx) => MealitemsCategoryScreen(),
     },
     theme: ThemeData(
       primarySwatch: Colors.pink,

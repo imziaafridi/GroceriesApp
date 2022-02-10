@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/Modules/categoriesMealitems.dart';
+import 'package:groceryapp/Widgets/categoryMealScreen.dart';
+import 'MealitemsCategoryScreen.dart';
 class MealItems extends StatelessWidget {
   // const MealItems({Key? key}) : super(key: key);
   final String title;
@@ -7,12 +9,14 @@ class MealItems extends StatelessWidget {
   final CompelexityLevels compelexityLevels;
   final AccessibilityLevels accessibilityLevels;
   final int duration;
+  final String id;
   MealItems({
     required this.title,
     required this.imageUrl,
     required this.accessibilityLevels,
     required this.compelexityLevels,
-    required this.duration
+    required this.duration,
+    required this.id
 });
   String get complexityText{
     switch(compelexityLevels){
@@ -43,12 +47,16 @@ String get accessibiltyText{
         return 'not found';
     }
 }
-  
+
+ void navigateToMealsScrn(BuildContext context){
+  Navigator.of(context).pushNamed(MealitemsCategoryScreen.routeName,arguments: id);
+ }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(15),
-      onTap: (){},
+      onTap: () => navigateToMealsScrn(context),
       splashColor: Theme.of(context).primaryColor,
       child: Card(
         elevation: 4.0,
@@ -59,7 +67,7 @@ String get accessibiltyText{
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
@@ -99,11 +107,9 @@ String get accessibiltyText{
                              ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Padding(padding: EdgeInsets.all(8)),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
                   children: [
 
                     Icon(Icons.schedule),
@@ -135,7 +141,6 @@ String get accessibiltyText{
                     ),),
                   ],
                 )
-
               ],
             ),
             // SizedBox(height: 30,),

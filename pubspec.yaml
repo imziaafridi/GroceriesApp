@@ -84,6 +84,9 @@ flutter:
          - asset: assets/fonts/Parisienne-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
 #           weight: 700
+    - family: Quintessential-Regular
+      fonts:
+         - asset: assets/fonts/Quintessential-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

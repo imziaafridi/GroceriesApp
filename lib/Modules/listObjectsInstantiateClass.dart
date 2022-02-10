@@ -33,13 +33,13 @@ const MealsDataWithObjInstantiate = const [
       'lemon'
     ],
     steps: [
-      'step1 Soak chicken in vinegar and salt solution for 20 minutes. Pro Tip: This helps clean the chicken and removes the blood in the chicken leg.',
-      'step2 Wash the chicken thoroughly after soaking and pat dry. Now, pierce the chicken with a fork. Then insert deep cuts across the grain. The cuts should be deep and the knife should touch the bone of the chicken.',
-      'step3 Mix all the ingredients of marination in a bowl.',
-      'step4 Apply all over the chicken and marinate overnight in the fridge. Or keep for 4-6 hours at room temperature in a cool place. Cover the pot with mesh or thin cloth to allow air circulation if keeping out of the fridge.',
-      'step5 Cook tikka in a wide pot on medium-high heat for 10-15 minutes. Cover the pot while cooking. Then burn excess water on high heat.',
-      'step6 To smoke: Place tikka in a wide pot with a tight lid. Put a piece of foil or a small metal bowl in the center of the pot. Now, heat charcoal on high flame until red hot then transfer coal carefully with the help of tongs to a pan. Drizzle little oil over the coal and cover the lid tightly to trap the smoke. Smoke for 7-10 minutes.',
-      'finaleStep7 Now heat the smoked tikka on the direct flame until crispy and serve. Or alternatively, you can grill tikka will little oil on a grill pan until slightly crispy. Grill on low heat.',
+      'Soak chicken in vinegar and salt solution for 20 minutes. Pro Tip: This helps clean the chicken and removes the blood in the chicken leg.',
+      'Wash the chicken thoroughly after soaking and pat dry. Now, pierce the chicken with a fork. Then insert deep cuts across the grain. The cuts should be deep and the knife should touch the bone of the chicken.',
+      'Mix all the ingredients of marination in a bowl.',
+      'Apply all over the chicken and marinate overnight in the fridge. Or keep for 4-6 hours at room temperature in a cool place. Cover the pot with mesh or thin cloth to allow air circulation if keeping out of the fridge.',
+      'Cook tikka in a wide pot on medium-high heat for 10-15 minutes. Cover the pot while cooking. Then burn excess water on high heat.',
+      'To smoke: Place tikka in a wide pot with a tight lid. Put a piece of foil or a small metal bowl in the center of the pot. Now, heat charcoal on high flame until red hot then transfer coal carefully with the help of tongs to a pan. Drizzle little oil over the coal and cover the lid tightly to trap the smoke. Smoke for 7-10 minutes.',
+      'Now heat the smoked tikka on the direct flame until crispy and serve. Or alternatively, you can grill tikka will little oil on a grill pan until slightly crispy. Grill on low heat.',
     ],
     compelexityLevels: CompelexityLevels.easy,
     accessiblityLevels: AccessibilityLevels.affordable,
@@ -63,15 +63,15 @@ const MealsDataWithObjInstantiate = const [
       'Meat',
     ],
     steps: [
-      '''First thing, when you start cooking is fry onions for 15 minutes on low heat with occasional stirring. Cover the pot and stir at regular intervals. Meanwhile, wash your meat and do other preps. The slow cooking of onion for about 15 minutes makes it very soft and more likely to dissolve into a thin smooth gravy.,
-         When onion are very soft, turn heat to medium and fry until light golden.'
-         Now, the visual sign is when the onion slices start to separate clearly, you stir constantly for few second until they are golden. Adjust heat as needed. You need medium golden color as shown in step 3. If you burn your few onions slices, it will spoil both color and taste of stew.
-         Now, the visual sign is when the onion slices start to separate clearly, you stir constantly for few second until they are golden. Adjust heat as needed. You need medium golden color as shown in step 3. If you burn your few onions slices, it will spoil both color and taste of stew.
-         Add ½ cup warm water. Mix and cover the lid tightly. Cook on medium heat until meat is tender. (30-45 minutes depending on meat and altitude) Add more warm water as needed. You can also use a pressure cooker to speed up the process.
-         When meat is tender. We cook the stew on high heat for 10-15 minutes stirring frequently until oil separates on sides of pot. (Bhunnofying)
-         Now, we'll add potatoes and water. Mix well, make sure potatoes are immersed in gravy. Cook for 10 minutes on medium heat with lid tightly covered until potatoes are fork tender.
-         Aloo gosht is ready. Garnish with loads of chopped fresh green coriander leaves and slitted green chillies.  
-      ''',
+        'First thing, when you start cooking is fry onions for 15 minutes on low heat with occasional stirring. Cover the pot and stir at regular intervals. Meanwhile, wash your meat and do other preps. The slow cooking of onion for about 15 minutes makes it very soft and more likely to dissolve into a thin smooth gravy.',
+         'When onion are very soft, turn heat to medium and fry until light golden.'
+         'Now, the visual sign is when the onion slices start to separate clearly, you stir constantly for few second until they are golden. Adjust heat as needed. You need medium golden color as shown in step 3. If you burn your few onions slices, it will spoil both color and taste of stew.'
+'         Now, the visual sign is when the onion slices start to separate clearly, you stir constantly for few second until they are golden. Adjust heat as needed. You need medium golden color as shown in step 3. If you burn your few onions slices, it will spoil both color and taste of stew.'
+'         Add ½ cup warm water. Mix and cover the lid tightly. Cook on medium heat until meat is tender. (30-45 minutes depending on meat and altitude) Add more warm water as needed. You can also use a pressure cooker to speed up the process.'
+'       When meat is tender. We cook the stew on high heat for 10-15 minutes stirring frequently until oil separates on sides of pot. (Bhunnofying)'
+'         Now, we\'ll add potatoes and water. Mix well, make sure potatoes are immersed in gravy. Cook for 10 minutes on medium heat with lid tightly covered until potatoes are fork tender.'
+'         Aloo gosht is ready. Garnish with loads of chopped fresh green coriander leaves and slitted green chillies.  '
+
     ],
     compelexityLevels: CompelexityLevels.medium,
     accessiblityLevels: AccessibilityLevels.pricey,
