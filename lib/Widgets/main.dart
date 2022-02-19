@@ -1,16 +1,79 @@
 import 'package:flutter/material.dart';
-import 'package:groceryapp/Widgets/MealitemsCategoryScreen.dart';
-import 'categoriesScreen.dart';
-import 'categoryMealScreen.dart';
+import 'package:groceryapp/Modules/categoriesMealitems.dart';
+import './MealitemsCategoryScreen.dart';
+import './categoryMealScreen.dart';
+import './tabsScreen.dart';
+import './myFiltersScreen.dart';
+import 'package:groceryapp/Modules/categoriesMealitems.dart';
+import 'package:groceryapp/Modules/listObjectsInstantiateClass.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(myAPP());
+}
+class myAPP extends StatefulWidget {
+  const myAPP({Key? key}) : super(key: key);
+  @override
+  State<myAPP> createState() => _myAPPState();
+}
+class _myAPPState extends State<myAPP> {
+  Map<String,bool> _filters = {
+    'lactose':false,
+    'vegetarian':false,
+    'vegon':false,
+    'gluten':false,
+  };
+  List<Meals> availableMeals = MealsDataWithObjInstantiate;
+
+  void _setfilters(Map<String,bool> filtersOverrrides){
+    setState(() {
+      _filters = filtersOverrrides;
+      availableMeals = MealsDataWithObjInstantiate.where((meal) {
+        if(_filters['lactose']! && !meal.isLactoseFree){
+          return false;
+        }
+        if(_filters['vegon']!  && !meal.isVegan){
+          return false;
+        }
+        if(_filters['gluten']! && !meal.isGlutenFree){
+          return false;
+        }
+        if(_filters['vegetarian']! && !meal.isVegetarian){
+          return false;
+        }
+        return true;
+      }).toList();
+    });
+  }
+  bool _isfiltersfilled(Map<String,bool> onPressIcon){
+    return availableMeals.any((meal) => meal.isStringBool == onPressIcon);
+  }
+  List<Meals> isMealsList = [];
+  void _isfavourite(String onClick){
+   final favouritemeal = isMealsList.indexWhere((meal) => meal.id == onClick);
+    if(favouritemeal >= 0){
+      setState(() {
+        isMealsList.removeAt(favouritemeal);
+      });
+    }else{
+      setState(() {
+        isMealsList.add(MealsDataWithObjInstantiate.firstWhere((mealId) => mealId.id == onClick));
+      });
+    }
+  }
+  bool _onPressIconChanges(String mealId){
+   return isMealsList.any((meal) => meal.id == mealId);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: '/',
+    initialRoute: myTabsBarScreen.routeName,
     routes: {
-       '/' : (ctx) => CategoriesPageWidget(),
-      CategriesMealScreen.routeName : (ctx) => CategriesMealScreen(),
-      MealitemsCategoryScreen.routeName : (ctx) => MealitemsCategoryScreen(),
+       myTabsBarScreen.routeName : (ctx) => myTabsBarScreen(isMealsList),
+      CategriesMealScreen.routeName : (ctx) => CategriesMealScreen(availableMeals),
+      MealitemsCategoryScreen.routeName : (ctx) => MealitemsCategoryScreen(_isfavourite,_onPressIconChanges),
+      myFiltersScreen.routName : (ctx) => myFiltersScreen(_filters,_setfilters,_isfiltersfilled),
     },
     theme: ThemeData(
       primarySwatch: Colors.pink,
@@ -27,7 +90,6 @@ void main() {
            fontWeight: FontWeight.bold,
           fontSize: 22.0,
           fontFamily: 'Parisienne',
-
         ),
       ),
       appBarTheme: AppBarTheme(
@@ -39,11 +101,9 @@ void main() {
           fontSize: 22.0,
           fontWeight: FontWeight.bold,
         ),
-brightness: Brightness.light,
-        // titleSpacing: 1.6,
-
+          brightness: Brightness.light,
       )
-
     ),
-  ));
+  );
+  }
 }

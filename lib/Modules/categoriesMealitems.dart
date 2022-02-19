@@ -1,44 +1,50 @@
 
-enum CompelexityLevels {
-  easy,
-  medium,
-  hard,
+enum Complexity {
+  Simple,
+  Challenging,
+  Hard,
 }
-enum AccessibilityLevels {
-  affordable,
-  pricey,
-  luxurious,
+enum Affordability {
+  Affordable,
+  Pricey,
+  Luxurious,
 }
-enum isVegetarian {
-  vegetarian,
-  semiVegetarain,
-  noneVegetarian,
-}
+// enum isVegetarian {
+//   vegetarian,
+//   semiVegetarain,
+//   noneVegetarian,
+// }
 
 class Meals {
   final String id;
   final String title;
-  final List<String> categoties;
+  final List<String> categories;
   final List<String> ingredients;
   final List<String> steps;
-  final CompelexityLevels compelexityLevels;
-  final AccessibilityLevels accessiblityLevels;
-  final bool isGlutenfree;
-  final isVegetarian isVegeterian;
+  final Complexity complexity;
+  final Affordability affordability;
+  final bool isGlutenFree;
+  final bool isVegetarian;
   final int duration;
   final String imageUrl;
+  final bool isVegan;
+  final bool isLactoseFree;
+  final Map<String,bool> isStringBool;
 
- const Meals({
+const  Meals({
     required this.id,
-    required this.categoties,
+    required this.categories,
     required this.title,
     required this.imageUrl,
     required this.ingredients,
     required this.steps,
-    required this.compelexityLevels,
-    required this.accessiblityLevels,
+    required this.complexity,
+    required this.affordability,
     required this.duration,
-    required this.isGlutenfree,
-    required this.isVegeterian,
+    required this.isGlutenFree,
+    required this.isVegetarian,
+   required this.isLactoseFree,
+   required this.isVegan,
+  required this.isStringBool
   });
 }

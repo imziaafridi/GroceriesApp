@@ -4,7 +4,9 @@ import 'package:groceryapp/Modules/listObjectsInstantiateClass.dart';
 
 class MealitemsCategoryScreen extends StatelessWidget {
   static const routeName = '/mealitemsCategoryScreen';
-
+  final Function onShowfavouriteIconClicked;
+  final Function isIconChanged;
+  MealitemsCategoryScreen(this.onShowfavouriteIconClicked,this.isIconChanged);
   @override
   Widget build(BuildContext context) {
     final recieveDataArgs =
@@ -18,14 +20,12 @@ class MealitemsCategoryScreen extends StatelessWidget {
         padding: EdgeInsets.all(10),
         margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          // color: Colors.deepPurple,
           borderRadius: BorderRadius.circular(15),
           shape: BoxShape.rectangle,
         ),
         child: child,
       );
     }
-
     Widget builderTitleText(String addtitle) {
       return Text(
         addtitle,
@@ -37,7 +37,6 @@ class MealitemsCategoryScreen extends StatelessWidget {
         ),
       );
     }
-
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -47,9 +46,7 @@ class MealitemsCategoryScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // SizedBox(height: 0,),
               Container(
                 width: double.infinity,
                 height: 250,
@@ -129,6 +126,13 @@ class MealitemsCategoryScreen extends StatelessWidget {
               ))
             ],
           ),
-        ));
+        ),
+       floatingActionButton: FloatingActionButton(
+        onPressed: () => onShowfavouriteIconClicked(recieveDataArgs),
+      elevation: 4.0,
+      tooltip: 'hi there',
+      child: isIconChanged(recieveDataArgs) ? Icon(Icons.star) : Icon(Icons.star_border_outlined),
+    ),
+    );
   }
 }

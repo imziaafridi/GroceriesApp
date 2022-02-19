@@ -6,15 +6,9 @@ class CategoriesPageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title:  Text('dailyMeal', style:Theme.of(context).appBarTheme.titleTextStyle,),
-        centerTitle: true,
-
-      ),
       body: GridView(
         padding: const EdgeInsets.all(25),
           scrollDirection: Axis.vertical,
-
           children:
           DummyListData.map(
               (e) => CategoryItems(title: e.title, color: e.color,id: e.id,)).toList(),

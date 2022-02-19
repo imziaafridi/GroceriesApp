@@ -1,57 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:groceryapp/Modules/categoriesMealitems.dart';
-import 'package:groceryapp/Widgets/categoryMealScreen.dart';
 import 'MealitemsCategoryScreen.dart';
 class MealItems extends StatelessWidget {
   // const MealItems({Key? key}) : super(key: key);
   final String title;
   final String imageUrl;
-  final CompelexityLevels compelexityLevels;
-  final AccessibilityLevels accessibilityLevels;
+  final Affordability affordabilitylevel;
+  final Complexity complexitylevel;
   final int duration;
   final String id;
   MealItems({
     required this.title,
     required this.imageUrl,
-    required this.accessibilityLevels,
-    required this.compelexityLevels,
+    required this.affordabilitylevel,
+    required this.complexitylevel,
     required this.duration,
-    required this.id
+    required this.id,
 });
-  String get complexityText{
-    switch(compelexityLevels){
-      case CompelexityLevels.easy:
-        return 'easy';
-        break;
-      case CompelexityLevels.medium:
-        return 'medium';
-        break;
-      case CompelexityLevels.hard:
-        return 'hard';
-        break;
-      default:
-        return 'not found';
-    }
-}
-String get accessibiltyText{
-    switch(accessibilityLevels){
-      case AccessibilityLevels.affordable:
-        return 'affordable';
-        break;
-      case AccessibilityLevels.pricey:
-        return 'pricey';
-        break;
-      case AccessibilityLevels.luxurious:
-        return 'luxurious';
-      default:
-        return 'not found';
-    }
-}
 
+  String get complexityText{
+    switch(complexitylevel){
+      case Complexity.Simple:
+        return 'Simple';
+        break;
+      case Complexity.Challenging:
+        return 'Challenging';
+        break;
+      case Complexity.Hard:
+        return 'Hard';
+        break;
+      default:
+        return 'unknown';
+    }
+  }
+
+String get affordabilityText{
+    switch(affordabilitylevel){
+      case Affordability.Affordable:
+        return 'Affordable';
+        break;
+      case Affordability.Pricey:
+        return 'Pricey';
+        break;
+      case Affordability.Luxurious:
+        return 'Luxurious';
+      default:
+        return 'unknown';
+    }
+}
  void navigateToMealsScrn(BuildContext context){
   Navigator.of(context).pushNamed(MealitemsCategoryScreen.routeName,arguments: id);
  }
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -67,8 +66,6 @@ String get accessibiltyText{
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
@@ -76,8 +73,6 @@ String get accessibiltyText{
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
-                    // bottomLeft: Radius.circular(15),
-                    // bottomRight: Radius.circular(15),
                   ),
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   child: Image.network(imageUrl,height: 285,width:double.infinity,fit: BoxFit.cover,),
@@ -93,7 +88,7 @@ String get accessibiltyText{
                     child: FittedBox(
                       fit: BoxFit.cover,
                       child: Text(title,style: TextStyle(
-                        fontFamily: 'Parisienne',
+                        fontFamily: 'Quintessential-Regular',
                         fontSize: 25.0,
                         color: Colors.white,
                         fontWeight: FontWeight.normal
@@ -111,33 +106,20 @@ String get accessibiltyText{
               children: [
                 Row(
                   children: [
-
                     Icon(Icons.schedule),
-                    // SizedBox(height: 10,),
-                    // SizedBox(width: 0,),
                     Text('$duration min',style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontFamily: 'OpenSansCondensed',
-                      // fontSize: 18,
-
                     ),),
-                    // SizedBox(width: 28,),
                     Icon(Icons.work),
-                    // SizedBox(width: 0,),
                     Text(complexityText,style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontFamily: 'OpenSansCondensed',
-
-                      // fontSize: 18,
                     ),),
-                    // SizedBox(width: 10,),
                     Icon(Icons.attach_money),
-                    // SizedBox(width: 0,),
-                    Text(accessibiltyText,style: TextStyle(
+                    Text(affordabilityText,style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontFamily: 'OpenSansCondensed',
-
-                      // fontSize: 18,
                     ),),
                   ],
                 )
